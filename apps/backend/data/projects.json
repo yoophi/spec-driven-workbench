@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "id": "spec-kit-todo-api-codex-cli",
+      "name": "Spec Kit Todo API Codex CLI",
+      "path": "/Users/yoophi/project/speckit-examples/spec-kit-todo-api-codex-cli",
+      "gitOriginUrl": "git@github.com:yoophi/spec-kit-todo-api-codex-cli.git"
+    },
+    {
+      "id": "spec-kit-todo-app",
+      "name": "Spec Kit Todo App",
+      "path": "/Users/yoophi/project/speckit-examples/spec-kit-todo-app",
+      "gitOriginUrl": "git@github.com:yoophi/spec-kit-todo-app.git"
+    }
+  ]
+}
