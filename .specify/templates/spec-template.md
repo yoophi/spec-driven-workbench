@@ -83,6 +83,8 @@
 - What feedback does the user receive during loading, pending, success, and failure states?
 - What recovery path is available after validation or application errors?
 - Is every spec-related explanation written in Korean except technical terms and code?
+- If frontend UI changes are required, which user-facing slice owns the behavior?
+- If backend behavior changes are required, which domain rule and adapter boundary are affected?
 
 ## Requirements *(mandatory)*
 
@@ -100,11 +102,13 @@
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
 - **FR-006**: System MUST provide visible feedback for user actions that trigger state changes or asynchronous work
 - **FR-007**: System MUST define validation, error, and recovery behavior for each core user flow
+- **FR-008**: Frontend UI changes MUST be attributable to a user-facing feature slice
+- **FR-009**: Backend behavior changes MUST identify the domain/application behavior and adapter boundary affected
 
 *Example of marking unclear requirements:*
 
-- **FR-008**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-009**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-010**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-011**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
 ### Key Entities *(include if feature involves data)*
 
