@@ -1,16 +1,10 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
 
-const app = new Hono();
+import { createApp } from "./app.js";
+
+const app = createApp();
 const port = Number.parseInt(process.env.PORT ?? "3000", 10);
 const hostname = process.env.HOST ?? "127.0.0.1";
-
-app.get("/health", (context) =>
-  context.json({
-    status: "ok",
-    service: "backend"
-  })
-);
 
 serve(
   {

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc --outDir dist --noEmit false",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@types/node": "latest",
-    "tsx": "latest"
+    "tsx": "latest",
+    "vitest": "^4.1.9"
   }
 }
