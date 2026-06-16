@@ -34,13 +34,15 @@
 - [ ] CHK004 User feedback states are covered for loading, pending, success, and failure
 - [ ] CHK005 Error and recovery paths are clear for each core user flow
 - [ ] CHK006 Spec-related prose is written in Korean except technical terms and code
+- [ ] CHK007 Frontend UI changes follow Feature-Sliced Design ownership and dependency direction
+- [ ] CHK008 Frontend UI uses Tailwind CSS and shadcn/ui primitives or documents a justified exception
 
 ## [Category 2]
 
-- [ ] CHK007 Another category item
-- [ ] CHK008 Item with specific criteria
-- [ ] CHK009 Final item in this category
-- [ ] CHK010 Traffic-scale optimization is absent or justified by a measured bottleneck
+- [ ] CHK009 Backend changes preserve Hexagonal Architecture boundaries
+- [ ] CHK010 Backend unit tests cover changed domain/application behavior
+- [ ] CHK011 Backend integration tests cover changed adapter/API behavior
+- [ ] CHK012 Traffic-scale optimization is absent or justified by a measured bottleneck
 
 ## Notes
 

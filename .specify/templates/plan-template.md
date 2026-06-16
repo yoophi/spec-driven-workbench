@@ -41,6 +41,11 @@
   failure feedback where applicable.
 - **Verification path**: Each user story has an automated test plan or documented
   manual quickstart check before implementation.
+- **Frontend architecture**: Frontend work identifies affected Feature-Sliced
+  Design layers/slices and uses Tailwind CSS plus shadcn/ui for UI composition.
+- **Backend architecture and tests**: Backend work identifies domain/application
+  logic, ports, inbound adapters, outbound adapters, and includes unit and
+  integration test plans before implementation.
 - **Personal-project simplicity**: Traffic-scale optimization is excluded unless
   a measured local bottleneck blocks the user outcome.
 
@@ -82,16 +87,22 @@ tests/
 # [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
 apps/backend/
 ├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
+│   ├── domain/
+│   ├── application/
+│   ├── ports/
+│   └── adapters/
 └── tests/
+    ├── unit/
+    └── integration/
 
 apps/web/
 ├── src/
-│   ├── components/
+│   ├── app/
 │   ├── pages/
-│   └── services/
+│   ├── widgets/
+│   ├── features/
+│   ├── entities/
+│   └── shared/
 └── tests/
 
 # [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)

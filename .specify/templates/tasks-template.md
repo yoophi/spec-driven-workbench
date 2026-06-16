@@ -15,8 +15,9 @@ description: "Task list template for feature implementation"
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
 **Tests**: Include automated tests for core behavior when a test framework exists.
-If automated tests are not available, include documented manual quickstart checks
-for each user story.
+Backend changes MUST include unit tests and integration tests. If automated tests
+are not available for non-backend work, include documented manual quickstart
+checks for each user story.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -29,7 +30,12 @@ for each user story.
 ## Path Conventions
 
 - **Single project**: `src/`, `tests/` at repository root
-- **Web app monorepo**: `apps/backend/src/`, `apps/web/src/`
+- **Web app monorepo**:
+  - Frontend Feature-Sliced Design: `apps/web/src/app/`, `pages/`, `widgets/`,
+    `features/`, `entities/`, `shared/`
+  - Backend Hexagonal Architecture: `apps/backend/src/domain/`,
+    `application/`, `ports/`, `adapters/`
+  - Backend tests: `apps/backend/tests/unit/`, `apps/backend/tests/integration/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
 
@@ -78,6 +84,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T009 Setup environment configuration management
 - [ ] T010 Define shared loading, error, validation, and recovery UI patterns
 - [ ] T011 Define test or manual quickstart verification harness
+- [ ] T012 Configure Tailwind CSS and shadcn/ui primitives for frontend UI work
+- [ ] T013 Define backend hexagonal architecture folders, ports, adapters, and test harness
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -94,18 +102,22 @@ Examples of foundational tasks (adjust based on your project):
 > **NOTE: Write automated tests first when available. Otherwise document the
 > manual quickstart check before implementation.**
 
-- [ ] T012 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T013 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
-- [ ] T014 [US1] Manual quickstart check for [user journey] in specs/[###-feature-name]/quickstart.md
+- [ ] T014 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T015 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T016 [US1] Manual quickstart check for [user journey] in specs/[###-feature-name]/quickstart.md
+- [ ] T017 [P] [US1] Backend unit test for [domain/application behavior] in apps/backend/tests/unit/[name].test.ts
+- [ ] T018 [P] [US1] Backend integration test for [adapter/API behavior] in apps/backend/tests/integration/[name].test.ts
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T016 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T017 [US1] Implement [Service] in src/services/[service].py (depends on T015, T016)
-- [ ] T018 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T019 [US1] Add loading, success, and failure feedback
-- [ ] T020 [US1] Add validation and recovery behavior
+- [ ] T019 [P] [US1] Create [Entity1] model in apps/backend/src/domain/[entity1].ts
+- [ ] T020 [P] [US1] Create [Feature] slice in apps/web/src/features/[feature]/
+- [ ] T021 [US1] Implement [UseCase] in apps/backend/src/application/[use-case].ts
+- [ ] T022 [US1] Define [Port] in apps/backend/src/ports/[port].ts
+- [ ] T023 [US1] Implement [Adapter] in apps/backend/src/adapters/[adapter].ts
+- [ ] T024 [US1] Implement UI with Tailwind CSS and shadcn/ui in apps/web/src/features/[feature]/
+- [ ] T025 [US1] Add loading, success, and failure feedback
+- [ ] T026 [US1] Add validation and recovery behavior
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -119,17 +131,17 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests or Manual Checks for User Story 2
 
-- [ ] T021 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T022 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
-- [ ] T023 [US2] Manual quickstart check for [user journey] in specs/[###-feature-name]/quickstart.md
+- [ ] T027 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T028 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T029 [US2] Manual quickstart check for [user journey] in specs/[###-feature-name]/quickstart.md
 
 ### Implementation for User Story 2
 
-- [ ] T024 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T025 [US2] Implement [Service] in src/services/[service].py
-- [ ] T026 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T027 [US2] Add user feedback, validation, and recovery states
-- [ ] T028 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T030 [P] [US2] Create [Entity] model in apps/backend/src/domain/[entity].ts
+- [ ] T031 [US2] Implement [UseCase] in apps/backend/src/application/[use-case].ts
+- [ ] T032 [US2] Implement [endpoint/feature] adapter in apps/backend/src/adapters/[adapter].ts
+- [ ] T033 [US2] Add user feedback, validation, and recovery states
+- [ ] T034 [US2] Integrate with User Story 1 components (if needed)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -143,16 +155,16 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests or Manual Checks for User Story 3
 
-- [ ] T029 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T030 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
-- [ ] T031 [US3] Manual quickstart check for [user journey] in specs/[###-feature-name]/quickstart.md
+- [ ] T035 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T036 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T037 [US3] Manual quickstart check for [user journey] in specs/[###-feature-name]/quickstart.md
 
 ### Implementation for User Story 3
 
-- [ ] T032 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T033 [US3] Implement [Service] in src/services/[service].py
-- [ ] T034 [US3] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T035 [US3] Add user feedback, validation, and recovery states
+- [ ] T038 [P] [US3] Create [Entity] model in apps/backend/src/domain/[entity].ts
+- [ ] T039 [US3] Implement [UseCase] in apps/backend/src/application/[use-case].ts
+- [ ] T040 [US3] Implement [endpoint/feature] adapter in apps/backend/src/adapters/[adapter].ts
+- [ ] T041 [US3] Add user feedback, validation, and recovery states
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -170,6 +182,9 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
+- [ ] TXXX Verify backend unit and integration tests cover changed ports/adapters
+- [ ] TXXX Verify frontend slices follow Feature-Sliced Design dependency direction
+- [ ] TXXX Verify UI uses Tailwind CSS and shadcn/ui without one-off style systems
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
 - [ ] TXXX Remove unjustified traffic-scale optimization or document measured need
@@ -197,8 +212,9 @@ Examples of foundational tasks (adjust based on your project):
 ### Within Each User Story
 
 - Tests or manual checks MUST be defined before implementation
-- Models before services
-- Services before endpoints
+- Backend unit and integration tests MUST be planned before backend implementation
+- Domain/application behavior before adapters
+- Ports before outbound adapter implementations
 - Core implementation before integration
 - Story complete before moving to next priority
 
@@ -264,6 +280,9 @@ With multiple developers:
 - [Story] label maps task to specific user story for traceability
 - Each user story should be independently completable and verifiable
 - Verify automated tests fail before implementing when tests are available
+- Backend implementation is incomplete until unit and integration tests pass
+- Frontend UI tasks must stay within the owning Feature-Sliced Design slice and
+  use Tailwind CSS plus shadcn/ui
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
